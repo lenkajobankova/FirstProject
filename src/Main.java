@@ -5,6 +5,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
+//Uživatelské jméno na Discordu: Lenka B.
+
 public class Main {
     public static void main(String[] args) {
         Cookbook cookbook = new Cookbook();
