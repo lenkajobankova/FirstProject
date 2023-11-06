@@ -60,9 +60,9 @@ public class Main {
                 new Order(15, cookbook.getCookbook().get(0),2,
                         LocalTime.of(15, 20), false),
                 new Order(15, cookbook.getCookbook().get(1), 2,
-                        LocalTime.of(15,20), LocalTime.of(15, 45), false),
+                        LocalTime.of(15,20), false),
                 new Order(15, cookbook.getCookbook().get(3), 2,
-                        LocalTime.of(15,20), LocalTime.of(15,30), true),
+                        LocalTime.of(15,20), LocalTime.of(15,30), false),
                 new Order(2, cookbook.getCookbook().get(2), 2,
                         LocalTime.of(16, 40), LocalTime.of(17, 0), true)
         ));
