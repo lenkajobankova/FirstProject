@@ -3,14 +3,16 @@ package com.engeto.restaurant;
 import java.math.BigDecimal;
 
 public class Dish {
+    private int id = nextId;
+    private static int nextId = 1;
     private String title;
     private BigDecimal price;
     private int preparationTime;
     private String image;
 
     //region Constructor
-
     public Dish(String title, BigDecimal price, int preparationTime, String image) {
+        this.id = nextId++;
         this.title = title;
         this.price = price;
         this.preparationTime = preparationTime;
@@ -18,12 +20,18 @@ public class Dish {
     }
     public Dish(String title, BigDecimal price, int preparationTime) {
         this(title, price, preparationTime, "blank");
+        this.id = nextId++;
     }
-
+    public Dish(String[] blocks) throws RestaurantException {
+        setId(Integer.parseInt(blocks[0].trim()));
+        this.title = blocks[1].trim();
+        setPrice(new BigDecimal(blocks[2].trim()));
+        setPreparationTime(Integer.parseInt(blocks[3].trim()));
+        this.image = blocks[4].trim();
+    }
     //endregion
 
-    //region Getters and Setters
-
+    //region Methods
     public String getTitle() {
         return title;
     }
@@ -32,23 +40,52 @@ public class Dish {
         this.title = title;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) throws RestaurantException {
+        try {
+            this.id =id;
+            if (id<1){
+                throw new RestaurantException("Zadané číslo jídla musí být větší než nula!" +
+                        " Zadáno: "+id);
+            }
+        } catch (NumberFormatException e) {
+            throw new RestaurantException("Špatně zadaný formát čísla!"+e.getLocalizedMessage());
+        }
+    }
+
     public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setPrice(BigDecimal price) throws RestaurantException {
+        try {
+            this.price = price;
+            if (price.compareTo(BigDecimal.valueOf(0))<1){
+                throw new RestaurantException("Cena nemůže být menší než 1! Zadáno:"+price);
+            }
+        } catch (NumberFormatException e) {
+            throw new RestaurantException("Chybně zadaný formát čísla! "+
+                    e.getLocalizedMessage());
+        }
     }
 
     public int getPreparationTime() {
         return preparationTime;
     }
 
-    public void setPreparationTime(int preparationTime) {
-        if (preparationTime>0){
+    public void setPreparationTime(int preparationTime) throws RestaurantException {
+        try{
             this.preparationTime = preparationTime;
-        } else {
-            System.err.println("Doba přípravy nesmí být záporné číslo nebo nula!");
+            if (preparationTime<=0){
+                throw new RestaurantException("Doba přípravy nesmí být záporné číslo " +
+                        "nebo nula! Bylo zadáno "+preparationTime+" minut.");
+            }
+        } catch (NumberFormatException e) {
+            throw new RestaurantException("Nesprávně zadaný formát čísla "+
+                    e.getLocalizedMessage());
         }
     }
 
@@ -60,5 +97,13 @@ public class Dish {
         this.image = image;
     }
 
+    @Override
+    public String toString() {
+        return  "\n" + id +
+                ". " + title +
+                ", cena: " + price +
+                " Kč, čas přípravy: " + preparationTime +
+                " minut, obrázek: " + image;
+    }
     //endregion
 }
