@@ -1,9 +1,7 @@
 package com.engeto.restaurant;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ListOfOrders {
     private final List<Order> listOfOrders = new ArrayList<>();
@@ -43,10 +41,6 @@ public class ListOfOrders {
     public static void loadFromFile(String filename) throws RestaurantException {
         ListOfOrders result = new ListOfOrders();
         int lineNumber = 1;
-        loadFromFileScanner(filename, lineNumber, result);
-    }
-
-    private static void loadFromFileScanner(String filename, int lineNumber, ListOfOrders result) throws RestaurantException {
         try(Scanner scanner = new Scanner(new BufferedReader(new FileReader(filename)))){
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
@@ -65,6 +59,8 @@ public class ListOfOrders {
                     filename +e.getLocalizedMessage());
         }
     }
+
+
     //endregion
 
 }

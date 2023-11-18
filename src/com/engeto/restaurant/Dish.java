@@ -1,6 +1,7 @@
 package com.engeto.restaurant;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 
 public class Dish {
     private int id = nextId;
@@ -46,7 +47,7 @@ public class Dish {
         return id;
     }
 
-    public static void setId(int id) throws RestaurantException {
+    public void setId(int id) throws RestaurantException {
         try {
             if (id<=nextId) this.id =nextId++;
             if (id<1){
@@ -62,7 +63,7 @@ public class Dish {
         return price;
     }
 
-    public void setPrice(BigDecimal price) throws RestaurantException {
+    public void setPrice(BigDecimal price) throws RestaurantException, NumberFormatException {
         try {
             this.price = price;
             if (price.compareTo(BigDecimal.valueOf(0))<1){

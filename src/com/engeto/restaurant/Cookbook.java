@@ -1,12 +1,11 @@
 package com.engeto.restaurant;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Cookbook {
     private static List<Dish> cookbook = new ArrayList<>();
+    private static Map<Integer, Dish> dishes = new HashMap<>();
 
     //region Constructor
     public Cookbook(){};
@@ -64,6 +63,16 @@ public class Cookbook {
             throw new RestaurantException("Nastala chyba při čtení ze souboru "+
                     filename +e.getLocalizedMessage());
         }
+        getListToMap(cookbook, dishes);
+    }
+    public static void getListToMap(List<Dish> cookbook, Map<Integer, Dish> dishes){
+        for (Dish dish : cookbook){
+            dishes.put(dish.getId(), dish);
+        }
+    }
+    public static Dish getDishById(int id){
+        Dish result = dishes.get(id);
+        return result;
     }
 
     @Override

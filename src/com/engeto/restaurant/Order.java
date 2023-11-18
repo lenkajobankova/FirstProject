@@ -25,7 +25,7 @@ public class Order implements Comparable<Order>{
 
     public Order(String[] blocks) throws RestaurantException {
         setTableNumber(Integer.parseInt(blocks[0].trim()));
-        Dish.setId(Integer.parseInt(blocks[1].trim()));
+        Cookbook.getDishById(Integer.parseInt(blocks[1].trim()));
         setOrderedTime(LocalTime.parse(blocks[2].trim()));
         setFulfilmentTime(LocalTime.parse(blocks[3].trim()));
         this.isPaid = Boolean.parseBoolean(blocks[4]);
