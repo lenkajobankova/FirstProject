@@ -5,7 +5,6 @@ import java.time.LocalTime;
 public class Order implements Comparable<Order>{
     private int tableNumber;
     private Dish dish;
-    private int dishId;
     private int dishAmount;
     private LocalTime orderedTime;
     private LocalTime fulfilmentTime;
@@ -26,7 +25,7 @@ public class Order implements Comparable<Order>{
 
     public Order(String[] blocks) throws RestaurantException {
         setTableNumber(Integer.parseInt(blocks[0].trim()));
-        this.dishId = Integer.parseInt(blocks[1].trim());
+        Dish.setId(Integer.parseInt(blocks[1].trim()));
         setOrderedTime(LocalTime.parse(blocks[2].trim()));
         setFulfilmentTime(LocalTime.parse(blocks[3].trim()));
         this.isPaid = Boolean.parseBoolean(blocks[4]);
@@ -101,14 +100,6 @@ public class Order implements Comparable<Order>{
     }
     public void setPaid(boolean paid) {
         isPaid = paid;
-    }
-
-    public int getDishId() {
-        return dishId;
-    }
-
-    public void setDishId(int dishId) {
-        this.dishId = dishId;
     }
 
     @Override

@@ -46,7 +46,7 @@ public class Dish {
         return id;
     }
 
-    public void setId(int id) throws RestaurantException {
+    public static void setId(int id) throws RestaurantException {
         try {
             if (id<=nextId) this.id =nextId++;
             if (id<1){
