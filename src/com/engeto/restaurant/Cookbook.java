@@ -48,10 +48,6 @@ public class Cookbook {
     public static void loadFromFile(String filename) throws RestaurantException {
         Cookbook result = new Cookbook();
         int lineNumber = 1;
-        loadFromFileScanner(filename, lineNumber, result);
-    }
-
-    private static void loadFromFileScanner(String filename, int lineNumber, Cookbook result) throws RestaurantException {
         try(Scanner scanner = new Scanner(new BufferedReader(new FileReader(filename)))){
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
