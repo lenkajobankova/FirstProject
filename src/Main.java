@@ -45,8 +45,7 @@ public class Main {
         System.out.println("Objednávky seřazené podle času zadání:");
         System.out.println(RestaurantManager.getListByOrderedTime(orders.getListOfOrders()));
 
-        System.out.print("Průměrná doba zpracování objednávek: ");
-        System.out.println(RestaurantManager.getAverageProcessingTime(orders.getListOfOrders())+" minut na objednávku");
+        RestaurantManager.getAverageProcessingTime(orders.getListOfOrders());
 
         System.out.println("Seznam dnes objednaných jídel:");
         System.out.println(RestaurantManager.getListOfTodaysOrders(orders.getListOfOrders()));

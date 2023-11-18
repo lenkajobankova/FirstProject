@@ -30,18 +30,24 @@ public class RestaurantManager{
         Collections.sort(sortedList);
         return sortedList;
     }
-    public static double getAverageProcessingTime(List<Order> listOfOrders){
+    public static void getAverageProcessingTime(List<Order> listOfOrders){
+        System.out.print("Průměrná doba zpracování objednávek ");
         double result = 0;
         long minutes = 0;
-        double finalResult;
+        double finalResult = 0;
         for (Order order : listOfOrders){
             if (order.getFulfilmentTime() != Settings.closingTime()) {
                 minutes += ChronoUnit.MINUTES.between(order.getOrderedTime(),order.getFulfilmentTime());
             }
             result++;
         }
-        finalResult = (double) minutes/result;
-        return finalResult;
+        if (result!=0){
+            finalResult = (double) minutes/result;
+            System.out.println("je "+finalResult+" minut na objednávku.");
+        }
+        else {
+            System.out.println("nelze vypočítat, dokud se nezadá nějaká objednávka.");
+        }
     }
     public static Set<Dish> getListOfTodaysOrders(List<Order> listOfOrders){
         Set<Dish> dishes = new HashSet<>();
