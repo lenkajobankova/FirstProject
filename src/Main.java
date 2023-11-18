@@ -84,7 +84,7 @@ public class Main {
         try{
             Cookbook.loadFromFile(Settings.fileNameCookbook());
         } catch (NumberFormatException | RestaurantException e) {
-            System.err.println("Nastala chyba při čtení ze souboru "+e.getLocalizedMessage());
+            System.out.println("Soubor pro načtení dříve uložených jídel nebyl nalezen.");
         }
     }
 
@@ -99,7 +99,7 @@ public class Main {
         try{
             ListOfOrders.loadFromFile(Settings.fileNameOrders());
         } catch (RestaurantException | DateTimeParseException e) {
-            System.err.println("Nastala chyba při čtení ze souboru "+e.getLocalizedMessage());
+            System.out.println("Soubor pro načtení předchozích objednávek nebyl nalezen.");
         }
     }
 
