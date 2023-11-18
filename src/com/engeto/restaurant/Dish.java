@@ -48,7 +48,7 @@ public class Dish {
 
     public void setId(int id) throws RestaurantException {
         try {
-            this.id =id;
+            if (id<=nextId) this.id =nextId++;
             if (id<1){
                 throw new RestaurantException("Zadané číslo jídla musí být větší než nula!" +
                         " Zadáno: "+id);
