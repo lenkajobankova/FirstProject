@@ -6,20 +6,22 @@ public class Dish {
     private int id = nextId;
     private static int nextId = 1;
     private String title;
+    private String amount;
     private BigDecimal price;
     private int preparationTime;
     private String image;
 
     //region Constructor
-    public Dish(String title, BigDecimal price, int preparationTime, String image) {
+    public Dish(String title, String amount, BigDecimal price, int preparationTime, String image) {
         this.id = nextId++;
         this.title = title;
+        this.amount = amount;
         this.price = price;
         this.preparationTime = preparationTime;
         this.image = image;
     }
-    public Dish(String title, BigDecimal price, int preparationTime) {
-        this(title, price, preparationTime, "blank");
+    public Dish(String title, String amount, BigDecimal price, int preparationTime) {
+        this(title, amount, price, preparationTime, "blank");
         this.id = nextId++;
     }
     public Dish(String[] blocks) throws RestaurantException {

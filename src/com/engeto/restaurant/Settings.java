@@ -8,6 +8,9 @@ public class Settings {
     private static final String DELIMITER = ";";
     private static final String TAB = "\t";
     private static final String SPACE = " ";
+    private static final String DOUBLE_ASTERISK = "**";
+    private static final String ORDER_START_DELIMITER = "****";
+    private static final String ORDER_END_DELIMITER = "******";
     private static final LocalTime CLOSING_TIME = LocalTime.of(0, 0);
 
     public static String fileNameCookbook(){
@@ -24,6 +27,15 @@ public class Settings {
     }
     public static String space(){
         return SPACE;
+    }
+    public static String doubleAsterisk(){
+        return DOUBLE_ASTERISK;
+    }
+    public static String orderStartDelimiter(){
+        return ORDER_START_DELIMITER;
+    }
+    public static String orderEndDelimiter(){
+        return ORDER_END_DELIMITER;
     }
     public static LocalTime closingTime(){
         return CLOSING_TIME;

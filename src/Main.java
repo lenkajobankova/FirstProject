@@ -70,13 +70,13 @@ public class Main {
 
     private static void setCookbook(Cookbook cookbook) {
         cookbook.setCookbook(List.of(
-                new Dish("Kuřecí řízek obalovaný 150g",
+                new Dish("Kuřecí řízek obalovaný", "150g",
                         BigDecimal.valueOf(69), 20, "rizek"),
-                new Dish("Hranolky 150g",
+                new Dish("Hranolky", "150g",
                         BigDecimal.valueOf(45), 10, "hranolky"),
-                new Dish("Pstruh na víně 200g",
+                new Dish("Pstruh na víně", "200g",
                         BigDecimal.valueOf(169), 20, "pstruh"),
-                new Dish("Kofola 0,5l",
+                new Dish("Kofola","0.5l",
                         BigDecimal.valueOf(39), 5, "kofola")));
     }
 

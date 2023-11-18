@@ -65,6 +65,7 @@ public class RestaurantManager{
             }
             orderNumber++;
         }
+        System.out.println(Settings.orderEndDelimiter());
     }
     public static BigDecimal getTotalPriceForTable(int numberOfTable, List<Order> listOfOrders){
         BigDecimal totalprice = BigDecimal.valueOf(0);
@@ -80,9 +81,13 @@ public class RestaurantManager{
     private static void getFormattedTableNumber(int tableNumber) {
         if (tableNumber <= 9){
             String tableNumberWithSpace = Settings.space() + tableNumber;
-            System.out.println("Objednávky pro stůl č. "+tableNumberWithSpace+":");
+            System.out.println(Settings.doubleAsterisk()+Settings.space()+"Objednávky pro stůl č. "+
+                    tableNumberWithSpace+Settings.space()+Settings.doubleAsterisk());
+            System.out.println(Settings.orderStartDelimiter());
         } else {
-            System.out.println("Objednávky pro stůl č. "+ tableNumber+":");
+            System.out.println(Settings.doubleAsterisk()+Settings.space()+"Objednávky pro stůl č. "+
+                    tableNumber+Settings.space()+Settings.doubleAsterisk());
+            System.out.println(Settings.orderStartDelimiter());
         }
     }
     private static String getFulfilmentTimeNotNull(LocalTime time){
