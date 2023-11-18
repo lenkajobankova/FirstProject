@@ -11,7 +11,6 @@ public class Settings {
     private static final String DOUBLE_ASTERISK = "**";
     private static final String ORDER_START_DELIMITER = "****";
     private static final String ORDER_END_DELIMITER = "******";
-    private static final LocalTime CLOSING_TIME = LocalTime.of(0, 0);
 
     public static String fileNameCookbook(){
         return FILE_NAME_COOKBOOK;
@@ -36,8 +35,5 @@ public class Settings {
     }
     public static String orderEndDelimiter(){
         return ORDER_END_DELIMITER;
-    }
-    public static LocalTime closingTime(){
-        return CLOSING_TIME;
     }
 }

@@ -19,7 +19,7 @@ public class RestaurantManager{
     public static int getUnfinishedOrders(List<Order> listOfOrders){
         int result = 0;
             for(Order order : listOfOrders){
-                if (order.getFulfilmentTime()==Settings.closingTime()){
+                if (order.getFulfilmentTime()==null){
                         result++;
                 }
             }
@@ -36,7 +36,7 @@ public class RestaurantManager{
         long minutes = 0;
         double finalResult = 0;
         for (Order order : listOfOrders){
-            if (order.getFulfilmentTime() != Settings.closingTime()) {
+            if (order.getFulfilmentTime() != null) {
                 minutes += ChronoUnit.MINUTES.between(order.getOrderedTime(),order.getFulfilmentTime());
             }
             result++;

@@ -75,12 +75,8 @@ public class Order implements Comparable<Order>{
         this.orderedTime = orderedTime;
     }
 
-    public LocalTime getFulfilmentTime() { // dokud nebude zadán čas vyřízení, zapíše se čas, kdy restaurace zavírá
-        if (fulfilmentTime != null){
-            return fulfilmentTime;
-        } else {
-            return Settings.closingTime();
-        }
+    public LocalTime getFulfilmentTime() {
+        return fulfilmentTime;
     }
 
     public void setFulfilmentTime(LocalTime fulfilmentTime) {
