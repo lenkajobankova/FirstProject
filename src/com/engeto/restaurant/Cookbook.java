@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Cookbook {
-    List<Dish> cookbook = new ArrayList<>();
+    private static List<Dish> cookbook = new ArrayList<>();
 
     //region Constructor
     public Cookbook(){};
@@ -14,7 +14,7 @@ public class Cookbook {
     //endregion
 
     //region Methods
-    public void addDish(Dish dish){
+    public static void addDish(Dish dish){
         cookbook.add(dish);
     }
     public void removeDish(Dish dish){
@@ -46,7 +46,6 @@ public class Cookbook {
         }
     }
     public static void loadFromFile(String filename) throws RestaurantException {
-        Cookbook result = new Cookbook();
         int lineNumber = 1;
         try(Scanner scanner = new Scanner(new BufferedReader(new FileReader(filename)))){
             while(scanner.hasNextLine()){
@@ -58,7 +57,7 @@ public class Cookbook {
                             " ("+line+"), zadáno: "+numOfBlocks+" položek.");
                 }
                 Dish newDish = new Dish(blocks);
-                result.addDish(newDish);
+                addDish(newDish);
                 lineNumber++;
             }
         } catch (FileNotFoundException e) {
